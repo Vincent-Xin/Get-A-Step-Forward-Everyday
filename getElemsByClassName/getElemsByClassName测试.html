@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>getElemsByClassName测试</title>
+</head>
+<body>
+	<script type="text/javascript" src="getElemsByClassName.js"></script>
+	<script>
+		//测试split()方法在字符串中没有传入分裂参数时
+		// var str=prompt("enter some letters without a space","");
+		// var aArr=str.split(" ");
+		// document.write(aArr.length);
+		
+		//以外链导入
+		// function getElemsByClassName(cls,obj){
+		// 	var allEles=obj?obj.getElementsByTagName("*"):document.body.getElementsByTagName("*");
+		// 	var result=[];
+		// 	for(var i in allEles){
+		// 		if(allEles[i].className){
+		// 			var clsName=allEles[i].className.split(" ");
+		// 			for(var j in clsName){
+		// 				if(clsName[j]==cls){
+		// 					result.push(allEles[i]);
+		// 					break;
+		// 				}
+		// 			}
+				
+		// 		}
+					
+		// 	}
+		// 	return result;
+		// }
+		
+		//onclick事件置于window.onload中方有效；
+		window.onload=function(){
+			var btn=document.getElementById('id');
+			btn.onclick=function(){
+				var aClassArr=getElemsByClassName('hehe');
+				alert(aClassArr.length);
+			}	
+		}
+		
+
+	</script>
+
+	<div class="hehe">
+		<div class="hehe he hh"></div>
+		<div class="hehe"></div>
+		<input id='id' type="button" name="hehe" value="点试一下">
+	</div>
+</body>
+</html>

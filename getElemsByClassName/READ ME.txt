@@ -1,0 +1,5 @@
+getElemsByClassName(cls[,obj])测试
+
+
+
+（包含onclick事件置于window.onload事件中有效的测试）
