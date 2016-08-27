@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas七巧板绘画</title>
+	<style type="text/css">
+		body{
+			background-image: url('http://cdn.backgroundhost.com/backgrounds/subtlepatterns/retina_wood.png');
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="960" height="600" style="border:1px #aaa solid;display:block;margin:40px auto;">当前浏览器不支持canvas，更新升级你的浏览器吧</canvas>
+	<script type="text/javascript">
+		//绘制彩色七巧板
+		var tangram=[
+			{p:[{x:100,y:100},{x:500,y:100},{x:300,y:300}],color:"#caff67"},
+			{p:[{x:100,y:100},{x:100,y:500},{x:300,y:300}],color:"#67becf"},
+			{p:[{x:200,y:400},{x:300,y:500},{x:100,y:500}],color:"#ef3d61"},
+			{p:[{x:300,y:300},{x:200,y:400},{x:300,y:500},{x:400,y:400}],color:"#f9f51a"},
+			{p:[{x:300,y:300},{x:400,y:200},{x:400,y:400}],color:"#a594c0"},
+			{p:[{x:400,y:200},{x:400,y:400},{x:500,y:300},{x:500,y:100}],color:"#fa8ecc"},
+			{p:[{x:500,y:300},{x:500,y:500},{x:300,y:500}],color:"#f6ca29"}
+		];	
+		window.onload=function(){
+			var canvas=document.getElementById("canvas");
+			var context=canvas.getContext("2d");
+
+			for(var i=0;i<tangram.length;i++){
+				draw(tangram[i],context);
+			}
+
+			function draw(tg,cxt){
+				cxt.beginPath();
+				cxt.moveTo(tg.p[0].x,tg.p[0].y);
+				for(var i=1;i<tg.p.length;i++){
+					cxt.lineTo(tg.p[i].x,tg.p[i].y);
+				}
+				cxt.closePath();
+				
+				context.strokeStyle="black";
+				context.lineWidth=2;
+				context.stroke();
+				context.fillStyle=tg.color;
+				context.fill();
+			}
+			
+			// canvas.onmouseup=function(e){
+			// 	var e=e?e:window.event;
+			// 	alert(e.pageX);
+			// 	alert(e.screenX);
+			// }
+			
+		}
+	</script>
+</body>
+</html>
